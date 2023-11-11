@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  event-service:
+    container_name: event-service-server
+    image: event-service:1.0
+    build: .
+    restart: always
+    ports:
+      - 9013:9013
+    depends_on:
+      event-service-mysqldb:
+        condition: service_started
+    networks:
+      - cineevent-net
+  
+  event-service-mysqldb:
+    container_name: event-service-mysqldb
+    image: mysql:8.0.35
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_events
+      MYSQL_USER: nrpndr
+      MYSQL_PASSWORD: 1234
+    ports:
+      - 3308:3306
+    networks:
+      - cineevent-net
+
+volumes:
+  mongo:
+  
+networks:
+  cineevent-net:
+    external: true
+    name: user-service_cineevent-net
