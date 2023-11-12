@@ -21,7 +21,7 @@ VALUES (
 
 INSERT IGNORE INTO `db_events`.`events` (
 	id, 
-	title, 
+	name, 
 	event_date, 
 	event_start_time, 
 	event_duration_in_minutes, 
