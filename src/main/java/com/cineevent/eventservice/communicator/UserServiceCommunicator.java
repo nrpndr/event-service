@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.cineevent.eventservice.dto.request.TokenDTO;
 import com.cineevent.eventservice.dto.response.UserAuthResponseDTO;
+import com.cineevent.eventservice.exceptions.AccessTokenExpiredException;
 import com.cineevent.eventservice.exceptions.ServiceCommunicationException;
 import com.google.gson.Gson;
 
@@ -52,6 +53,9 @@ public class UserServiceCommunicator {
 			throw new ServiceCommunicationException("Internal Server Error");
 		} catch (RestClientException e) {
 			log.error("Error communicating to user service, errorMessage", e);
+			if(e.getMessage().contains("401")) {
+				throw new AccessTokenExpiredException("Access Token is Expired or InValid");
+			}
 			throw new ServiceCommunicationException("Auth Service is unavailable, please try after some time");
 		} catch (Exception e) {
 			log.error("Error communicating to user service, errorMessage={}", e);
