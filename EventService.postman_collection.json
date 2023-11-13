@@ -1,0 +1,1668 @@
+{
+	"info": {
+		"_postman_id": "a569b11f-83d1-4ebc-b796-ebafe2c139b8",
+		"name": "EventService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3998349"
+	},
+	"item": [
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "{eventId}",
+					"item": [
+						{
+							"name": "get Event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"eventId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<integer>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "create Or Update Event",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"eventId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<integer>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete Event",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "update Event",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events/:eventId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events",
+										":eventId"
+									],
+									"variable": [
+										{
+											"key": "eventId",
+											"value": "<integer>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"eventId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<integer>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											},
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/events/:eventId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"events",
+												":eventId"
+											],
+											"variable": [
+												{
+													"key": "eventId"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "get All Events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"eventId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"eventDate\": \"<string>\",\n    \"eventStartTime\": \"<string>\",\n    \"eventDurationInMinutes\": \"<integer>\",\n    \"venue\": \"<string>\",\n    \"description\": \"<string>\",\n    \"artistNames\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"eventId\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"eventDate\": \"<string>\",\n    \"eventStartTime\": \"<string>\",\n    \"eventDurationInMinutes\": \"<integer>\",\n    \"venue\": \"<string>\",\n    \"description\": \"<string>\",\n    \"artistNames\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create Event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"eventId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<integer>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									},
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"eventDate\": \"<string>\",\n  \"eventStartTime\": \"<string>\",\n  \"eventDurationInMinutes\": \"<string>\",\n  \"venue\": \"<string>\",\n  \"description\": \"<string>\",\n  \"artistNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/events",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"events"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "*/*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"<string>\",\n  \"timestamp\": \"<long>\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9013"
+		}
+	]
+}

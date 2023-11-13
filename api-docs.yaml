@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: EventService
-  version: v0
+  version: v1
 servers:
 - url: http://localhost:9013
-  description: Event Service is a service that cares of maintaining events data
+  description: Event Service is a service that takes cares of maintaining events data
 paths:
   /events/{eventId}:
     get:
@@ -31,14 +31,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "404":
-          description: Not Found
+        "400":
+          description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "400":
-          description: Bad Request
+        "404":
+          description: Not Found
           content:
             '*/*':
               schema:
@@ -79,14 +79,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "404":
-          description: Not Found
+        "400":
+          description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "400":
-          description: Bad Request
+        "404":
+          description: Not Found
           content:
             '*/*':
               schema:
@@ -123,14 +123,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "404":
-          description: Not Found
+        "400":
+          description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "400":
-          description: Bad Request
+        "404":
+          description: Not Found
           content:
             '*/*':
               schema:
@@ -173,14 +173,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "404":
-          description: Not Found
+        "400":
+          description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "400":
-          description: Bad Request
+        "404":
+          description: Not Found
           content:
             '*/*':
               schema:
@@ -211,14 +211,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "404":
-          description: Not Found
+        "400":
+          description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "400":
-          description: Bad Request
+        "404":
+          description: Not Found
           content:
             '*/*':
               schema:
@@ -254,14 +254,14 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "404":
-          description: Not Found
+        "400":
+          description: Bad Request
           content:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDTO'
-        "400":
-          description: Bad Request
+        "404":
+          description: Not Found
           content:
             '*/*':
               schema:
